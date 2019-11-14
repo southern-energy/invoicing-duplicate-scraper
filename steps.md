@@ -15,3 +15,10 @@
 ## Outputs
 
 - Prints the duplicates out to the user.
+
+## Resources
+
+- For Editing Python Styles:
+  - <https://xlutils.readthedocs.io/en/latest/styles.html>
+  - <http://www.python-excel.org/>
+  
