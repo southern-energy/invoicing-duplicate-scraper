@@ -21,9 +21,6 @@
 
 # # Above is the basic principle behind this program.
 
-
-# https://blogs.harvard.edu/rprasad/2014/06/16/reading-excel-with-python-xlrd/
-
 import xlrd
 import xlwt
 import xlutils # Module Requires both XLRD & XLWT to be imported.
