@@ -1,4 +1,5 @@
 # # Started by Gregory Power at 11/06/19 @ 4:27 PM
+# # Basic Functionality Achieved on 11/12/19
 
 # secnd_list_test = [["Not","Me"], ["Dash", "Final"], ["Not_It", "Left"]]
 # first_list_test = [["Dash", "Not"], ["Extra", "Data"]]
