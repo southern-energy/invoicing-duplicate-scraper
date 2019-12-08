@@ -1,6 +1,7 @@
 # # Started by Gregory Power at 11/06/19 @ 4:27 PM
 # # Basic Functionality Achieved on 11/12/19
 # # Able to Print Indexes on 11/19/19
+# For Environment, use Python 3.6.0
 
 import xlrd
 import xlwt
