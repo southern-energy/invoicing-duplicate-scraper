@@ -1,6 +1,6 @@
-# # Started by Gregory Power at 11/06/19 @ 4:27 PM
-# # Basic Functionality Achieved on 11/12/19
-# # Able to Print Indexes on 11/19/19
+# # Started by Gregory Power at 11/06/110 @ 4:27 PM
+# # Basic Functionality Achieved on 11/12/110
+# # Able to Print Indexes on 11/110/110
 # For Environment, use Python 3.6.0
 # Began Creation of New Branch for New Excel format that includes Service IDs
 
@@ -15,9 +15,9 @@ import numpy as np
 
 # The current_sheet variable needs to be named the sheet you want to check for duplicates.
 
-current_sheet = './dummySheet.xlsx'
+current_sheet = './dummySheetnewformat.xlsx'
 
-large_sheet = './2019 Inspections Billing.xlsx'
+large_sheet = './2019 Inspections Billing_New_Format.xlsx'
 
 # =======================================================
 # =======================================================
@@ -34,15 +34,19 @@ pd.read_excel(large_sheet)
 
 # Find All of the Sheets in the Workbook
 
-master_sheet = pd.read_excel(large_sheet, sheet_name=None, usecols=[0, 1, 2, 9])
+# master_sheet = pd.read_excel(large_sheet, sheet_name=None, usecols=[0, 1, 2, 10])
 
 # Combine all sheets of Master Sheet into a single list of lists.
 
-df_master_Street_Address_And_Service = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[2, 9], skiprows=0), sort=False, ignore_index=False)
+df_master_Street_Address_And_Service = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[2, 10], skiprows=0), sort=False, ignore_index=False)
+
+print(df_master_Street_Address_And_Service)
 
 # Read all of the sheets, using just the columns that have Street Address and the Service.
 
-df_current_sheet_Street_Address_And_Service = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[2, 9], skiprows=0), sort=False, ignore_index=False)
+df_current_sheet_Street_Address_And_Service = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[2, 10], skiprows=0), sort=False, ignore_index=False)
+
+print(df_current_sheet_Street_Address_And_Service)
 
 # First Have to make them into a list of lists (https://stackoverflow.com/questions/22341271/get-list-from-pandas-dataframe-column)
 
