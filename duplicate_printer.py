@@ -70,7 +70,7 @@ second_set_storage = (map(tuple, ser_aggRows_current_sheet))
 duplicates = first_set.intersection(secnd_set)
 
 if len(duplicates) > 0:
-    print("Duplicates are: ", duplicates, sep="\n", end="\nPlease use these records above to find the Address + Service Type duplicates.\n")
+    print("Address and Service Type duplicates are: ", duplicates, sep="\n", end="\nPlease use these records above to find the Address + Service Type duplicates.\n")
 else: 
     print("There are no Address + Service Type duplicates!")
 
