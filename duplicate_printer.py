@@ -3,7 +3,6 @@
 # # Able to Print Indexes on 11/19/19
 # # Able to Search for ServiceID or Address + ServiceType Duplicates on 12/11/19 at 4:42 PM
 # For Environment, use Python 3.6.0
-# Began Creation of New Branch for New Excel format that includes Service IDs
 
 
 # We need to find duplicates that exist, there is one in the master sheet at the bottom of the most recent sheet.
