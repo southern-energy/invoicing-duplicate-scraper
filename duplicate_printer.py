@@ -36,18 +36,26 @@ pd.read_excel(large_sheet)
 
 #Start of Service ID Section
 
+# Master Sheet
 df_master_ServiceID = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[9], skiprows=0), sort=False, ignore_index=False)
 
+# Current Sheet
 df_current_sheet_ServiceID = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[9], skiprows=0), sort=False, ignore_index=False)
 
+# Master Sheet
 ser_aggRows_master_ServiceID = pd.Series(df_master_ServiceID.values.tolist())
 
+#Current Sheet
 ser_aggRows_current_sheet_ServiceID = pd.Series(df_current_sheet_ServiceID.values.tolist())
 
+
+# Master Sheet
 first_set_ServiceID = set(map(tuple, ser_aggRows_master_ServiceID))
 
+# Current Sheet
 secnd_set_ServiceID = set(map(tuple, ser_aggRows_current_sheet_ServiceID))
 
+# Purpose of this Variable?
 second_set_storage_ServiceID = (map(tuple, ser_aggRows_current_sheet_ServiceID))
 
 duplicates_ServiceID = first_set_ServiceID.intersection(secnd_set_ServiceID)
