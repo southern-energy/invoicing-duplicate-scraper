@@ -132,7 +132,7 @@ duplicates_list_ServiceID_Duplicates = list(map(list, duplicates_ServiceID))
 secnd_set_list_ServiceID_Duplicates = list(map(list, second_set_storage_ServiceID))
 
 if len(duplicates_ServiceID) > 0:
-    print("Duplicates for ServiceID Condition are: ", duplicates_ServiceID, sep="\n", end="\nPlease use these records above to find the duplicate ServiceIDs.\n")
+    print("\nDuplicates for ServiceID Condition are: ", duplicates_ServiceID, sep="\n", end="\nPlease use these records above to find the duplicate ServiceIDs.\n")
 else: 
     print("There are no ServiceID duplicates!")
 
