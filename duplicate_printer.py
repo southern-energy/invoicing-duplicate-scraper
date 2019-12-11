@@ -63,7 +63,6 @@ ser_aggRows_current_sheet = pd.Series(df_current_sheet_Street_Address_And_Servic
 
 # print('Printing: ser_aggRows_current_sheet (This collapses each row in Excel into a row this script can read.)',ser_aggRows_current_sheet, sep='\n', end='\n\nWe have finished organizing the rows of the Current Workbook\'s sheets into lists.\n\n')
 
-
 first_set = set(map(tuple, ser_aggRows))
 secnd_set = set(map(tuple, ser_aggRows_current_sheet))
 second_set_storage = (map(tuple, ser_aggRows_current_sheet))
