@@ -1,6 +1,12 @@
 # # Started by Gregory Power at 11/06/19 @ 4:27 PM
 # # Basic Functionality Achieved on 11/12/19
 # # Able to Print Indexes on 11/19/19
+# # Able to Search for ServiceID or Address + ServiceType Duplicates on 12/11/19 at 4:42 PM
+# For Environment, use Python 3.6.0
+
+
+# We need to find duplicates that exist, there is one in the master sheet at the bottom of the most recent sheet.
+
 
 import xlrd
 import xlwt
@@ -11,7 +17,7 @@ import numpy as np
 # =======================================================
 # =======================================================
 
-# The current_sheet variable needs to be named the sheet you want to check for duplicates.
+# The current_sheet variable needs to be named the sheet you want to check for Duplicate (Service Types &Addresses) OR duplicate (ServiceIDs).
 
 current_sheet = 'C:/Users/SEM/Documents/Invoicing/12-9-19.xlsx'
 
@@ -29,18 +35,21 @@ workbook = xlrd.open_workbook(large_sheet)
 pd.read_excel(large_sheet)
 
 
+# Start of Address + Service Type Duplicate Section
+
 
 # Find All of the Sheets in the Workbook
-
-master_sheet = pd.read_excel(large_sheet, sheet_name=None, usecols=[0, 1, 2, 9])
-
 # Combine all sheets of Master Sheet into a single list of lists.
 
-df_master_Street_Address_And_Service = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[2, 9], skiprows=0), sort=False, ignore_index=False)
+df_master_Street_Address_And_Service = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[2, 10], skiprows=0), sort=False, ignore_index=False)
+
+# print(df_master_Street_Address_And_Service)
 
 # Read all of the sheets, using just the columns that have Street Address and the Service.
 
-df_current_sheet_Street_Address_And_Service = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[2, 9], skiprows=0), sort=False, ignore_index=False)
+df_current_sheet_Street_Address_And_Service = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[2, 10], skiprows=0), sort=False, ignore_index=False)
+
+# print(df_current_sheet_Street_Address_And_Service)
 
 # First Have to make them into a list of lists (https://stackoverflow.com/questions/22341271/get-list-from-pandas-dataframe-column)
 
@@ -53,7 +62,6 @@ ser_aggRows_current_sheet = pd.Series(df_current_sheet_Street_Address_And_Servic
 
 # print('Printing: ser_aggRows_current_sheet (This collapses each row in Excel into a row this script can read.)',ser_aggRows_current_sheet, sep='\n', end='\n\nWe have finished organizing the rows of the Current Workbook\'s sheets into lists.\n\n')
 
-
 first_set = set(map(tuple, ser_aggRows))
 secnd_set = set(map(tuple, ser_aggRows_current_sheet))
 second_set_storage = (map(tuple, ser_aggRows_current_sheet))
@@ -62,9 +70,9 @@ second_set_storage = (map(tuple, ser_aggRows_current_sheet))
 duplicates = first_set.intersection(secnd_set)
 
 if len(duplicates) > 0:
-    print("Duplicates are: ", duplicates, sep="\n", end="\nPlease use these records above to find the duplicates.\n")
+    print("Address and Service Type duplicates are: ", duplicates, sep="\n", end="\nPlease use these records above to find the Address + Service Type duplicates.\n")
 else: 
-    print("There are no duplicates!")
+    print("There are no Address + Service Type duplicates!")
 
 # Duplicates_list converts the duplicates (an object type: set, with tuples inside it, to a list of lists again)
 
@@ -85,7 +93,56 @@ while k < len(duplicates_list):
     k += 1
 else:
     Excel_Indexes.sort()
-    print("\nWe are done. Look to the following rows in Excel: \n", Excel_Indexes, sep="\n")
+    print("\nWe are done. Look to the following rows in Excel for Address + Service Type duplicates: \n", Excel_Indexes, sep="\n")
+
+# End of Address + Service Type Duplicate Section
+
+# Start of Service ID Section
+
+# Master Sheet
+
+df_master_ServiceID = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[9], skiprows=0), sort=False, ignore_index=False)
+
+df_master_ServiceID.fillna(0, inplace = True)
+
+# Current Sheet
+
+df_current_sheet_ServiceID = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[9], skiprows=0), sort=False, ignore_index=False)
+
+# Master Sheet
+ser_aggRows_master_ServiceID = pd.Series(df_master_ServiceID.values.tolist())
+
+#Current Sheet
+ser_aggRows_current_sheet_ServiceID = pd.Series(df_current_sheet_ServiceID.values.tolist())
 
 
+# Master Sheet
+first_set_ServiceID = set(map(tuple, ser_aggRows_master_ServiceID))
 
+secnd_set_ServiceID = set(map(tuple, ser_aggRows_current_sheet_ServiceID))
+
+second_set_storage_ServiceID = (map(tuple, ser_aggRows_current_sheet_ServiceID))
+
+duplicates_ServiceID = first_set_ServiceID.intersection(secnd_set_ServiceID)
+
+duplicates_list_ServiceID_Duplicates = list(map(list, duplicates_ServiceID))
+
+secnd_set_list_ServiceID_Duplicates = list(map(list, second_set_storage_ServiceID))
+
+if len(duplicates_ServiceID) > 0:
+    print("\nDuplicates for ServiceID Condition are: ", duplicates_ServiceID, sep="\n", end="\nPlease use these records above to find the duplicate ServiceIDs.\n")
+else: 
+    print("There are no ServiceID duplicates!")
+
+
+q = 0
+Excel_Indexes_for_ServiceID_Duplicates = []
+while q < len(duplicates_list_ServiceID_Duplicates):
+    # print(secnd_set_list_Address_Service_Duplicates.index(duplicates_list_ServiceID_Duplicates[q]))
+    Excel_Indexes_for_ServiceID_Duplicates.append(int(2) + int(secnd_set_list_ServiceID_Duplicates.index(duplicates_list_ServiceID_Duplicates[q])))
+    q += 1
+else:
+    Excel_Indexes_for_ServiceID_Duplicates.sort()
+    print("\nWe are done. Look to the following rows in Excel for Service ID Duplicates: \n", Excel_Indexes_for_ServiceID_Duplicates)
+
+# End of Service ID Section;
