@@ -13,9 +13,9 @@ import numpy as np
 
 # The current_sheet variable needs to be named the sheet you want to check for duplicates.
 
-current_sheet = './dummySheet.xlsx'
+current_sheet = 'C:/Users/SEM/Documents/Invoicing/12-9-19.xlsx'
 
-large_sheet = './2019 Inspections Billing.xlsx'
+large_sheet = 'S:/SEM/Accounting/New Home Building Performance Invoicing/NHBP Inspections Billing/2019 Inspections Billing.xlsx'
 
 # =======================================================
 # =======================================================
