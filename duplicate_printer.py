@@ -70,9 +70,9 @@ second_set_storage = (map(tuple, ser_aggRows_current_sheet))
 duplicates = first_set.intersection(secnd_set)
 
 if len(duplicates) > 0:
-    print("Address and Service Type duplicates are: ", duplicates, sep="\n", end="\nPlease use these records above to find the Address + Service Type duplicates.\n")
+    print("\n\nAddress and Service Type duplicates are: \n==========================================================================", duplicates, sep="\n", end="\n==========================================================================\nPlease use the list of Address and Service type pair(s) above to find the Address + Service Type duplicates.\n==========================================================================\n")
 else: 
-    print("There are no Address + Service Type duplicates!")
+    print("\n==========================================================================\nThere are no Address + Service Type duplicates!\n==========================================================================\n")
 
 # Duplicates_list converts the duplicates (an object type: set, with tuples inside it, to a list of lists again)
 
@@ -130,9 +130,9 @@ duplicates_list_ServiceID_Duplicates = list(map(list, duplicates_ServiceID))
 secnd_set_list_ServiceID_Duplicates = list(map(list, second_set_storage_ServiceID))
 
 if len(duplicates_ServiceID) > 0:
-    print("\nDuplicates for ServiceID Condition are: ", duplicates_ServiceID, sep="\n", end="\nPlease use these records above to find the duplicate ServiceIDs.\n")
+    print("\nDuplicates for ServiceID Condition are: \n==========================================================================", duplicates_ServiceID, sep="\n", end="\n==========================================================================\nPlease use the list of ServiceIDs above to find the duplicate ServiceIDs.\n")
 else: 
-    print("There are no ServiceID duplicates!")
+    print("\n==========================================================================\nThere are no ServiceID duplicates!\n==========================================================================\n")
 
 
 q = 0
