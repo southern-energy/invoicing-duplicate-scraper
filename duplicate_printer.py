@@ -19,11 +19,7 @@ import numpy as np
 
 # The current_sheet variable needs to be named the sheet you want to check for Duplicate (Service Types &Addresses) OR duplicate (ServiceIDs).
 
-<<<<<<< HEAD
 current_sheet = 'C:/Users/SEM/Documents/Invoicing/3-19-20.xlsx'
-=======
-current_sheet = 'C:/Users/SEM/Documents/Invoicing/1-21-20.xlsx'
->>>>>>> 613dea58a52e083e77af490cf82f89ca689cb506
 
 large_sheet = 'S:/SEM/Accounting/New Home Building Performance Invoicing/NHBP Inspections Billing/2020 Inspections Billing.xlsx'
 
