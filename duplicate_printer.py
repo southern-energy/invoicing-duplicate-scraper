@@ -41,13 +41,13 @@ pd.read_excel(large_sheet)
 # Find All of the Sheets in the Workbook
 # Combine all sheets of Master Sheet into a single list of lists.
 
-df_master_Street_Address_And_Service = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[2, 10], skiprows=0), sort=False, ignore_index=False)
+df_master_Street_Address_And_Service = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[1, 10], skiprows=0), sort=False, ignore_index=False)
 
 # print(df_master_Street_Address_And_Service)
 
 # Read all of the sheets, using just the columns that have Street Address and the Service.
 
-df_current_sheet_Street_Address_And_Service = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[2, 10], skiprows=0), sort=False, ignore_index=False)
+df_current_sheet_Street_Address_And_Service = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[1, 10], skiprows=0), sort=False, ignore_index=False)
 
 # print(df_current_sheet_Street_Address_And_Service)
 
@@ -101,13 +101,13 @@ else:
 
 # Master Sheet
 
-df_master_ServiceID = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[9], skiprows=0), sort=False, ignore_index=False)
+df_master_ServiceID = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[7], skiprows=0), sort=False, ignore_index=False)
 
 df_master_ServiceID.fillna(0, inplace = True)
 
 # Current Sheet
 
-df_current_sheet_ServiceID = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[9], skiprows=0), sort=False, ignore_index=False)
+df_current_sheet_ServiceID = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[7], skiprows=0), sort=False, ignore_index=False)
 
 # Master Sheet
 ser_aggRows_master_ServiceID = pd.Series(df_master_ServiceID.values.tolist())
