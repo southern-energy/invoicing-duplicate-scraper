@@ -101,13 +101,13 @@ else:
 
 # Master Sheet
 
-df_master_ServiceID = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[7], skiprows=0), sort=False, ignore_index=False)
+df_master_ServiceID = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[9], skiprows=0), sort=False, ignore_index=False)
 
 df_master_ServiceID.fillna(0, inplace = True)
 
 # Current Sheet
 
-df_current_sheet_ServiceID = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[7], skiprows=0), sort=False, ignore_index=False)
+df_current_sheet_ServiceID = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[9], skiprows=0), sort=False, ignore_index=False)
 
 # Master Sheet
 ser_aggRows_master_ServiceID = pd.Series(df_master_ServiceID.values.tolist())
