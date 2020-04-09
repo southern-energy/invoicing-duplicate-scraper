@@ -101,7 +101,7 @@ else:
 
 # Master Sheet
 
-df_master_ServiceID = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[7], skiprows=0), sort=False, ignore_index=False)
+df_master_ServiceID = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[7], skiprows=0), sort=False, ignore_index=False, join="outer")
 
 df_master_ServiceID.fillna(0, inplace = True)
 
@@ -109,17 +109,27 @@ df_master_ServiceID.fillna(0, inplace = True)
 
 df_current_sheet_ServiceID = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[7], skiprows=0), sort=False, ignore_index=False)
 
+df_master_serviceID = df_master_ServiceID.astype(int)
+
 # Master Sheet
+
 ser_aggRows_master_ServiceID = pd.Series(df_master_ServiceID.values.tolist())
+
+# print(ser_aggRows_master_ServiceID)
 
 #Current Sheet
 ser_aggRows_current_sheet_ServiceID = pd.Series(df_current_sheet_ServiceID.values.tolist())
 
+# print(ser_aggRows_current_sheet_ServiceID)
 
 # Master Sheet
 first_set_ServiceID = set(map(tuple, ser_aggRows_master_ServiceID))
 
+# print(first_set_ServiceID)
+
 secnd_set_ServiceID = set(map(tuple, ser_aggRows_current_sheet_ServiceID))
+
+# print(secnd_set_ServiceID)
 
 second_set_storage_ServiceID = (map(tuple, ser_aggRows_current_sheet_ServiceID))
 
