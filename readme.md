@@ -1,4 +1,4 @@
-# Duplicate Sniffer Project: Bloodhound
+# Duplicate Sniffer Project
 
 ## Steps
 
