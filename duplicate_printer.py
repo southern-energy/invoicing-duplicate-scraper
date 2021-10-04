@@ -19,9 +19,9 @@ import numpy as np
 
 # The current_sheet variable needs to be named the sheet you want to check for Duplicate (Service Types &Addresses) OR duplicate (ServiceIDs).
 
-current_sheet = 'C:/Users/SEM/Documents/Invoicing/4-8-20.xlsx'
+current_sheet = 'C:/Users/SEM/Documents/Invoicing/9-30-21.xlsx'
 
-large_sheet = 'S:/SEM/Accounting/New Home Building Performance Invoicing/NHBP Inspections Billing/2020 Inspections Billing.xlsx'
+large_sheet = '//192.168.18.3/public/SEM/Building Science Team/Accounting/Invoicing Spreadsheets/2021 Inspections Billing.xlsx'
 
 # =======================================================
 # =======================================================
@@ -41,13 +41,13 @@ pd.read_excel(large_sheet)
 # Find All of the Sheets in the Workbook
 # Combine all sheets of Master Sheet into a single list of lists.
 
-df_master_Street_Address_And_Service = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[1, 10], skiprows=0), sort=False, ignore_index=False)
+df_master_Street_Address_And_Service = pd.concat(pd.read_excel(large_sheet, sheet_name=None, usecols=[1, 11], skiprows=0), sort=False, ignore_index=False)
 
 # print(df_master_Street_Address_And_Service)
 
 # Read all of the sheets, using just the columns that have Street Address and the Service.
 
-df_current_sheet_Street_Address_And_Service = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[1, 10], skiprows=0), sort=False, ignore_index=False)
+df_current_sheet_Street_Address_And_Service = pd.concat(pd.read_excel(current_sheet, sheet_name=None, usecols=[1, 11], skiprows=0), sort=False, ignore_index=False)
 
 # print(df_current_sheet_Street_Address_And_Service)
 
